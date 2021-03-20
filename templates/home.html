@@ -1,0 +1,131 @@
+<html>
+  <head>
+      <title>moveForward Batch Schedule</title>
+      <link rel="stylesheet" href="/static/styles.css">
+      <link rel="icon" href="/static/logo.png" type="image/gif" sizes="16x16">
+
+  </head>
+  <body>
+
+
+
+      <header class="main-header">
+
+
+            <a href="https://moveforward100.com/">
+              <img class = "logo" src="static/logo.png" alt="logo" width="100" height="100">
+            </a>
+            <h1 class="title">Trainer's Batch Details</h1>
+
+      </header>
+
+
+
+      <table id="batches">
+        <tr>
+          <th>B.No.</th>
+          <th>Course</th>
+          <th>Level</th>
+          <th>Sessions</th>
+          <th>Trainer</th>
+          <th>Days</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+          <th>Students</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Next Batch</th>
+        </tr>
+
+        <tr>
+          <td>      
+            <input type="text" id="c0" onkeyup="myFunction(0 , 'c0')" placeholder="Filter" title="Filter Batch No">
+          </td>
+          <td>      
+            <input type="text" id="c1" onkeyup="myFunction(1,'c1')" placeholder="Filter" title="Filter Course">
+          </td>
+          <td>      
+            <input type="text" id="c2" onkeyup="myFunction(2,'c2')" placeholder="Filter" title="Filter Level">
+          </td>
+          <td>      
+            <input type="text" id="c3" onkeyup="myFunction(3,'c3')" placeholder="Filter" title="Filter Sessions">
+          </td>
+          <td>      
+            <input type="text" id="c4" onkeyup="myFunction(4,'c4')" placeholder="Filter" title="Filter Trainer">
+          </td>
+          <td>      
+            <input type="text" id="c5" onkeyup="myFunction(5,'c5')" placeholder="Filter" title="Filter Days">
+          </td>
+          <td>      
+            <input type="text" id="c6" onkeyup="myFunction(6,'c6')" placeholder="Filter" title="Filter Start Time">
+          </td>
+          <td>      
+            <input type="text" id="c7" onkeyup="myFunction(7,'c7')" placeholder="Filter" title="Filter End Time">
+          </td>
+          <td>      
+            <input type="text" id="c8" onkeyup="myFunction(8,'c8')" placeholder="Filter" title="Filter Students">
+          </td>
+          <td>      
+            <input type="text" id="c9" onkeyup="myFunction(9,'c9')" placeholder="Filter" title="Filter Start Date">
+          </td>
+          <td>      
+            <input type="text" id="c10" onkeyup="myFunction(10,'c10')" placeholder="Filter" title="Filter End Date">
+          </td>
+          <td>      
+            <input type="text" id="c11" onkeyup="myFunction(11,'c11')" placeholder="Filter" title="Filter Next Batch">
+          </td>
+
+        </tr>        
+        {% for i in data%}
+        <tr>
+          <td>{{i.batch_no}}</td>
+          <td>{{i.course}}</td>
+          <td>{{i.level}}</td>
+          <td>{{i.sessions}}</td>
+          <td>{{i.trainer}}</td>
+          <td>{{i.days}}</td>
+          <td>{{i.start_time}}</td>
+          <td>{{i.end_time}}</td>
+          <td>{{i.students}}</td>
+          <td>{{i.start_date}}</td>
+          <td>{{i.stop_date}}</td>
+          <td>{{i.next_date}}</td>
+        </tr>        
+        {%endfor%}
+
+
+
+      </table>
+      
+
+    <script>
+    function myFunction(column ,id) {
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById(id);
+      filter = input.value.toUpperCase();
+      table = document.getElementById("batches");
+      tr = table.getElementsByTagName("tr");
+      for (i = 2; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[column];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }       
+      }
+    }
+    </script>
+
+    <div class="footer">
+
+    </div>
+
+      </body>
+      </html>
+      
+  </body>
+
+</html>

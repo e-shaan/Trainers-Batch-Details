@@ -1,0 +1,169 @@
+*{
+
+
+    margin : 0px;
+}
+
+body {
+    font-family: Helvetica, sans-serif;
+
+
+}
+ 
+.logo{
+  float:left;
+} 
+
+#c0 , #c1 , #c2 , #c3 , #c4 , #c5 , #c6 , #c7 , #c8, #c9, #c10, #c11{
+    margin: 0 auto;
+    width: 70px;
+    height: 30px;
+    padding: 0px;
+    border: 0px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    resize: horizontal;
+    text-align: center; 
+
+}
+
+#c8{
+    width: 90%;
+}
+
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+
+
+
+
+input[type=submit] {
+  color:  rgb(235, 112, 68);
+  background-color: midnightblue;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.3em;
+  font-weight: bold;
+
+}
+.button {
+
+  color: midnightblue ; 
+  padding: 2px 4px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+
+}
+
+input[type=submit]:hover {
+    background-color:  rgb(235, 112, 68);
+    color: midnightblue;
+}
+
+.container {
+  padding-right: 20px; 
+}
+
+.main-container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  width: 100%;
+  padding: 20px;
+
+  font-size: 1em;
+}
+.home-header{
+    color : coral;
+    text-align : center;
+    font-weight : 400px;
+}
+  
+#batches {
+
+    font-family: "Comic Sans MS";
+    font-weight: bold
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    font-size : 15;
+
+}
+  
+#batches td, #batches th {
+    border: 1px solid rgb(235, 112, 68);
+    padding: 8px 0px;
+}
+  
+#batches tr:nth-child(odd){
+    background-color: #ffffff;  
+}
+#batches tr:nth-child(even){
+    background-color:  rgb(212, 211, 211);  
+} 
+#batches tr:hover {
+    background-color: #ddd
+  }
+  
+#batches th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    font-size: 1.2em;
+    background-color: rgb(235, 112, 68);
+    color: white;
+}
+
+
+
+
+
+.main-header {
+    background-color: rgba(0, 0, 0, .6);
+    background-image: url("header.png");
+    background-blend-mode: multiply;
+    background-size: cover;
+    padding-bottom: 30px;
+}
+
+
+.title {
+    text-align: center;
+    padding: : 700px;
+    font-size: 3em;
+    font-family: "Courier";
+    font-weight: bold;
+    color: coral;
+    padding-top: 20px;
+    padding-right: 40px;
+
+}
+
+
+.footer {
+   position: relative;
+   height: 100%;  
+   width: 100%;
+       background-color: rgba(0, 0, 0, .6); 
+    background-image: url("header.png");
+        background-blend-mode: multiply;
+        background-size: cover; 
+   color: white;
+   text-align: center;
+}

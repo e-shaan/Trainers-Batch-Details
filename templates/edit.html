@@ -1,0 +1,177 @@
+<html>
+    <head>
+        <title>moveForward Batch Schedule</title>
+        <link rel="stylesheet" href="/static/styles.css">
+        <link rel="stylesheet" href="/static/styles_edit.css">
+        <link rel="icon" href="/static/logo.png" type="image/gif" sizes="16x16">
+        <script src="/static/myscript.js"></script>
+    </head>
+    <body>
+        
+      <header class="main-header">
+        
+            <a href="https://moveforward100.com/">
+              <img class = "logo" src="static/logo.png" alt="logo" width="100" height="100">
+            </a>
+            <h1 class="title">Add New Batch</h1>
+
+      </header>
+
+
+        <div class="main-container">
+          <form action="/edit" METHOD = "POST" >
+
+            <label for="course">Course</label>
+            <select id="course" name="course" required>
+                <option value="">-Select-</option>
+                <option value="Python">Python</option>
+                <option value="Primary">Primary</option>
+                <option value="Middle">Middle</option>
+            </select>
+
+            <label for="level">Level</label>
+            <select id="level" name="level" required>
+                <option value="">-Select-</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+
+            <label for="sessions">Sessions</label>
+            <select id="sessions" name="sessions" required>
+                <option value="">-Select-</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+
+            <label for="trainer">Trainer</label>
+            <select id="trainer" name="trainer" required>
+                <option value="">-Select-</option>
+                <option value="Eshaan">Eshaan</option>
+                <option value="Aaditya">Aaditya</option>
+                <option value="Ashok">Ashok</option>
+
+            </select>
+
+
+            <label>Days</label><br><br>
+
+            <label class="container" >Sunday
+            <input type="checkbox" name="days" value="Sun" >
+            </label>
+
+
+            <label class="container" >Monday   
+            <input type="checkbox" name="days" value="Mon" >
+            </label>
+
+            <label class="container" >Tuesday
+            <input type="checkbox" name="days" value="Tue" >
+            </label>
+
+            <label class="container" >Wednesday
+            <input type="checkbox" name="days" value="Wed" >
+            </label>
+
+            <label class="container" >Thursday
+            <input type="checkbox" name="days" value="Thu" >
+            </label>
+
+            <label class="container" >Friday
+            <input type="checkbox" name="days" value="Fri" >
+            </label>
+
+            <label class="container" >Saturday
+            <input type="checkbox" name="days" value="Sat" >
+            </label>
+
+
+
+
+
+            <br><br>
+            <label for="start_time">Start Time
+            <input type="time" id="start_time" name="start_time" value = '' required> 
+            </label>
+            
+            &nbsp&nbsp&nbsp
+            <label for="end_time">End Time      
+            <input type="time" id="end_time" name="end_time" value = '' required> 
+            </label>
+            
+            <br><br>
+
+
+            <label for="students">Student Names</label>
+            <input type="text" id="students" name="students" placeholder="Student1, Student2, Student3" required>
+
+            <label for="start_date">Batch Start Date</label>
+            <input type="date" id="start_date" name="start_date" required>
+            <br><br>
+
+
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+      
+      
+      <table id="batches">
+        <tr>
+          <th>B.No.</th>
+          <th>Course</th>
+          <th>Level</th>
+          <th>Sessions</th>
+          <th>Trainer</th>
+          <th>Days</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+          <th>Students</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Next Batch</th>
+          <th>Edit</th>
+        </tr>
+        
+        {% for i in data%}
+        <tr>
+          <td>{{i.batch_no}}</td>
+          <td>{{i.course}}</td>
+          <td>{{i.level}}</td>
+          <td>{{i.sessions}}</td>
+          <td>{{i.trainer}}</td>
+          <td>{{i.days}}</td>
+          <td>{{i.start_time}}</td>
+          <td>{{i.end_time}}</td>
+          <td>{{i.students}}</td>
+          <td>{{i.start_date}}</td>
+          <td>{{i.stop_date}}</td>
+          <td>{{i.next_date}}</td>
+          <td><a class= "button" href = "/update/{{i.batch_no}}" >Update</a>/<a class= "button" href = "/delete/{{i.batch_no}}">Delete</a>  </td>
+        
+        </tr>     
+        {%endfor%}
+
+
+
+      </table>
+          <div class="footer">
+
+    </div> 
+
+
+    </body>
+
+</html>
