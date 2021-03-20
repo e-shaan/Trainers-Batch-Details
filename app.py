@@ -3,12 +3,12 @@ from flask_sqlalchemy import SQLAlchemy
 from calculate_date import *
 from sqlalchemy import desc
 
- #initialising the webapp
-webapp = Flask(__name__)
+ #initialising the app
+app = Flask(__name__)
 
 #initialising the database
-webapp.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///batches.db'
-db = SQLAlchemy(webapp)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///batches.db'
+db = SQLAlchemy(app)
 
 #database model
 class Batch_Details(db.Model):
@@ -31,7 +31,7 @@ class Batch_Details(db.Model):
 
 
 
-@webapp.route('/')
+@app.route('/')
 def home():
 	data = Batch_Details.query.order_by(desc(Batch_Details.batch_no))
 
@@ -39,7 +39,7 @@ def home():
 	return render_template('home.html' , data = data)
  
 
-@webapp.route('/edit' , methods = ['GET', 'POST'])
+@app.route('/edit' , methods = ['GET', 'POST'])
 def edit():
 	data = Batch_Details.query.order_by(desc(Batch_Details.batch_no))
 	last_record = data[0].batch_no
@@ -100,7 +100,7 @@ def edit():
 
 		return render_template('edit.html', data = data)
 
-@webapp.route('/update/<int:batch_no>' , methods = ['GET', 'POST'])
+@app.route('/update/<int:batch_no>' , methods = ['GET', 'POST'])
 def update(batch_no):
 
 	entry_to_update  = Batch_Details.query.get_or_404(batch_no)
@@ -147,7 +147,7 @@ def update(batch_no):
 	
 	
   
-@webapp.route('/delete/<int:batch_no>' , methods = ['GET', 'POST'])
+@app.route('/delete/<int:batch_no>' , methods = ['GET', 'POST'])
 def delete(batch_no):
 	entry_to_delete = Batch_Details.query.get_or_404(batch_no)
     
@@ -162,7 +162,7 @@ def delete(batch_no):
 
 
 if  __name__ == "__main__":
-	webapp.run(debug = True)
+	app.run(debug = True)
 
 
 
