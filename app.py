@@ -3,6 +3,13 @@ from flask_sqlalchemy import SQLAlchemy
 from calculate_date import *
 from sqlalchemy import desc
 
+
+#add deleted by admin at this date and time
+#mark completed batches based 
+#add id for trainer form
+#create table courses master(master table)
+#active and deactive batches buttons
+
  #initialising the app
 app = Flask(__name__)
 
